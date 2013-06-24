@@ -11,14 +11,16 @@ A trivia script for Hubot.
 
 1. Edit `package.json` and add `hubot-trivia` to the `dependencies` section. Example:
 
-        ```javascript
-        "dependencies": {
-          "hubot-trivia": ">= 0.3.0",
-          ...
-        }
-        ```
+
+        
+    "dependencies": {
+      "hubot-trivia": ">= 0.3.0",
+      ...
+    }
+        
+        
+
 2. Add "hubot-trivia" to your `external-scripts.json`. Example:
 
-    ```javascript
+
     ["hubot-trivia"]
-    ```
