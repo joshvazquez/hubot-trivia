@@ -1,0 +1,23 @@
+{
+  "name": "hubot-trivia",
+  "version": "0.3.0",
+  "description": "A trivia script for Hubot",
+  "main": "./src/hubot-trivia",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Xenodite/hubot-trivia.git"
+  },
+  "keywords": [
+    "hubot",
+    "trivia"
+  ],
+  "dependencies": {
+    "sqlite3": ">= 2.1.10",
+  },
+  "author": "Josh Vazquez",
+  "license": "GPL",
+  "readmeFilename": "README.md",
+}
