@@ -38,4 +38,5 @@ A trivia script for Hubot.
     
     You can find plaintext question lists here: http://www.wedul.com/trivia.html
     
-    Parser coming soon.
+    Parser at: https://github.com/Xenodite/trivia-parser
+    Parser designed for question file TriviaQuestions.zip\spicytrivia00.txt at trivia link above.
