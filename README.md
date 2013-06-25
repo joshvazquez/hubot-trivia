@@ -28,15 +28,15 @@ A trivia script for Hubot.
 
 3. Supply a question database and assign it to @dbfile. This version expects the following table structure:
 
-    `table: questions`
-    `fields: category text, title text`
-    
-    `table: answers`
-    `fields: id integer, answer text`
+    `table: questions`  
+    `fields: category text, title text`  
+      
+    `table: answers`  
+    `fields: id integer, answer text`  
     
     Each row in `questions` has a unique `rowid`. The `answers` table contains one or more accepted answers to each question, with `id` matching the question's `rowid`.
     
     You can find plaintext question lists here: http://www.wedul.com/trivia.html
     
-    Parser at: https://github.com/Xenodite/trivia-parser
+    Parser at: https://github.com/Xenodite/trivia-parser   
     Parser designed for question file TriviaQuestions.zip\spicytrivia00.txt at trivia link above.
