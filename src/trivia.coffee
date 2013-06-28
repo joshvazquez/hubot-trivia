@@ -131,10 +131,11 @@ module.exports = (robot) =>
         @g.hint(msg)
 
     else if msg.match[1] is "!end"
-      gameExists = 0
-      if gameExists is 0 or !gameExists
+      if gameExists is 1
+        @g = 0
+        gameExists = 0
         msg.send "Game ended."
-
+				
     else # assume other messages are guesses while the game is running
       if gameExists is 1
         @g.tryGuess(msg.match[1])
