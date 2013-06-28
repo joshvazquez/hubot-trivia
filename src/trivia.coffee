@@ -109,8 +109,9 @@ class Game
         @hintAnswer = @hintArray.join("")
       msg.send "Hint: " + @hintAnswer + "(" + @hintAnswer.length + " characters)"
 
+gameExists = 0
+
 module.exports = (robot) =>
-  # TODO: set brain gameExists to 0 on launch. Setting it here doesn't work because brain isn't initialized yet.
   robot.hear /(.*)/i, (msg) ->
     if msg.match[1] is "!trivia help"
       showHelp(msg)
@@ -119,28 +120,28 @@ module.exports = (robot) =>
     #  msg.send "Your message"
 
     else if msg.match[1] is "!trivia"
-      if robot.brain.get('gameExists') is 0 or !robot.brain.get('gameExists') # game not running
+      if gameExists is 0 or !gameExists # game not running
         @g = new Game(msg, robot) # create game
-        robot.brain.set 'gameExists', 1
-      else if robot.brain.get('gameExists') is 1 # game running
+        gameExists = 1
+      else if gameExists is 1 # game running
         msg.send "Game is already running. Say \"!trivia help\" to see available commands."
 
     else if msg.match[1] is "!hint"
-      if robot.brain.get('gameExists') is 1
+      if gameExists is 1
         @g.hint(msg)
 
     else if msg.match[1] is "!end"
-      robot.brain.set 'gameExists', 0
-      if robot.brain.get('gameExists') is 0 or !robot.brain.get('gameExists')
+      gameExists = 0
+      if gameExists is 0 or !gameExists
         msg.send "Game ended."
 
     else # assume other messages are guesses while the game is running
-      if robot.brain.get('gameExists') is 1
+      if gameExists is 1
         @g.tryGuess(msg.match[1])
         if @g.currentQuestion > 9
           msg.send "Game over! Thanks for playing!"
           @g = 0
-          robot.brain.set 'gameExists', 0
+          gameExists = 0
              
 
 showHelp = (msg) ->
